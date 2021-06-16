@@ -1,0 +1,146 @@
+#############################################################################
+# Jinx!Script for scrolling tiny little couples from left to right
+# (c)2021 Rene Springborn
+# https://github.com/qu1cke/jinx-scripts
+#############################################################################
+
+:init
+
+	# number of people
+	config num_people = 2	
+
+	# margin between 2 people
+	config margin = 11
+	
+	# use prefered coupling (in case you want more gay gus haha)
+	config useprefered = 1
+
+	# prefered coupling genders 0/1/2 - man/woman/binary
+	config preferedgender = 0
+
+	# use prefered coupling after x cycles
+	config usepreferedafter = 3
+
+	# do not change params below this line
+	man_x[0]=matrix_x+10
+	man_y[0]=matrix_y/2+1
+
+	stop_x=-10
+	cycle = 0
+
+end
+
+
+# render frame
+:render
+
+	# clear matrix
+	clear
+	
+	# speed control
+	for x = 0 to pixelstep step 1
+	
+	# loop through number of configured people
+	for i = 0 to num_people-1
+	
+	# set position
+   	man_x[i] = man_x[i]-1
+	man_y[i]= man_y[i]
+
+
+	if man_x[num_people-1] < stop_x
+		cycle = cycle + 1
+		# reset position and randomize gender of 1st guy
+		man_x[0]=matrix_x+10
+		man_y[0]=matrix_y/2+1
+		gender[0] = rnd(2)
+
+		for j = 1 to num_people-1
+		  # reset position of the others
+		  man_x[j]=man_x[j-1]+margin
+		  man_y[j]=matrix_y/2+1
+		  gender[j] = rnd(2)
+		next
+
+		# recalc for prefered genders
+		if useprefered = 1 and cycle = usepreferedafter
+		 cycle = 0
+		 for k = 0 to num_people-1
+		  gender[k] = preferedgender
+		 next
+		endif
+		
+	endif
+
+  	# head_top
+	line man_x[i]-1, man_y[i]-15,man_x[i]+1,man_y[i]-15,autocolor_red,autocolor_green,autocolor_blue
+	# head left
+	line man_x[i]-2, man_y[i]-14,man_x[i]-2,man_y[i]-12,autocolor_red,autocolor_green,autocolor_blue
+	# head right
+	line man_x[i]+2, man_y[i]-14,man_x[i]+2,man_y[i]-12,autocolor_red,autocolor_green,autocolor_blue
+	# head bottom
+	line man_x[i]-1, man_y[i]-11,man_x[i]+1,man_y[i]-11,autocolor_red,autocolor_green,autocolor_blue
+	# shoulder
+	line man_x[i]-2, man_y[i]-9,man_x[i]+2,man_y[i]-9,autocolor_red,autocolor_green,autocolor_blue
+	# shoulder left
+	pset man_x[i]-3,man_y[i]-8,autocolor_red,autocolor_green,autocolor_blue
+	# shoulder_right
+	pset man_x[i]+3,man_y[i]-8,autocolor_red,autocolor_green,autocolor_blue
+	# arm left
+	line man_x[i]-4, man_y[i]-7,man_x[i]-4,man_y[i],autocolor_red,autocolor_green,autocolor_blue
+	# arm right
+	line man_x[i]+4, man_y[i]-7,man_x[i]+4,man_y[i],autocolor_red,autocolor_green,autocolor_blue
+
+	# MAN
+	if gender[i]=0
+	# body/leg left
+	line man_x[i]-2, man_y[i]-5,man_x[i]-2,man_y[i]+12,autocolor_red,autocolor_green,autocolor_blue
+	# body/leg right
+	line man_x[i]+2, man_y[i]-5,man_x[i]+2,man_y[i]+12,autocolor_red,autocolor_green,autocolor_blue
+	# middle legs
+	line man_x[i], man_y[i]+3,man_x[i],man_y[i]+12,autocolor_red,autocolor_green,autocolor_blue
+	endif
+
+	#WOMAN
+	if gender[i]=1
+	# body left
+	line man_x[i]-2, man_y[i]-5,man_x[i]-2,man_y[i]+2,autocolor_red,autocolor_green,autocolor_blue
+	# body right
+	line man_x[i]+2, man_y[i]-5,man_x[i]+2,man_y[i]+2,autocolor_red,autocolor_green,autocolor_blue
+	# skirt 1 left
+	line man_x[i]-3, man_y[i]+3,man_x[i]-3,man_y[i]+4,autocolor_red,autocolor_green,autocolor_blue
+	# skirt 1 right
+	line man_x[i]+3, man_y[i]+3,man_x[i]+3,man_y[i]+4,autocolor_red,autocolor_green,autocolor_blue
+	# skirt 2 left
+	line man_x[i]-4, man_y[i]+5,man_x[i]-4,man_y[i]+7,autocolor_red,autocolor_green,autocolor_blue
+	# skirt 2 right
+	line man_x[i]+4, man_y[i]+5,man_x[i]+4,man_y[i]+7,autocolor_red,autocolor_green,autocolor_blue
+	# legs
+	line man_x[i]-2, man_y[i]+8,man_x[i]-2,man_y[i]+12,autocolor_red,autocolor_green,autocolor_blue
+	line man_x[i], man_y[i]+8,man_x[i],man_y[i]+12,autocolor_red,autocolor_green,autocolor_blue
+	line man_x[i]+2, man_y[i]+8,man_x[i]+2,man_y[i]+12,autocolor_red,autocolor_green,autocolor_blue
+	endif
+
+	#BINARY
+	if gender[i]=2
+	# body left
+	line man_x[i]-2, man_y[i]-5,man_x[i]-2,man_y[i]+2,autocolor_red,autocolor_green,autocolor_blue
+	# body/leg right
+	line man_x[i]+2, man_y[i]-5,man_x[i]+2,man_y[i]+12,autocolor_red,autocolor_green,autocolor_blue
+	# skirt 1 left
+	line man_x[i]-3, man_y[i]+3,man_x[i]-3,man_y[i]+4,autocolor_red,autocolor_green,autocolor_blue
+	# skirt 2 left
+	line man_x[i]-4, man_y[i]+5,man_x[i]-4,man_y[i]+7,autocolor_red,autocolor_green,autocolor_blue
+	# legs
+	line man_x[i]-2, man_y[i]+8,man_x[i]-2,man_y[i]+12,autocolor_red,autocolor_green,autocolor_blue
+	line man_x[i], man_y[i]+8,man_x[i],man_y[i]+12,autocolor_red,autocolor_green,autocolor_blue
+	endif
+
+
+	next #i
+  	
+	next
+
+
+end
+
