@@ -63,7 +63,7 @@ end
 		next
 
 		# recalc for prefered genders
-		if useprefered = 1 and cycle = usepreferedafter
+		if useprefered = 1 & cycle >= usepreferedafter
 		 cycle = 0
 		 for k = 0 to num_people-1
 		  gender[k] = preferedgender
@@ -143,4 +143,3 @@ end
 
 
 end
-
