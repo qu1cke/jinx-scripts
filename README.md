@@ -1,6 +1,6 @@
 # jinx-scripts
 
-User scripts for Jinx! matrix LED controller
+User scripts for Jinx! matrix LED controller from http://www.live-leds.de/
 
 ## pride.jns
 
