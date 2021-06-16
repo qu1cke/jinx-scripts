@@ -1,0 +1,124 @@
+:init
+
+     radius=matrix_x/10-1
+     fontsize=matrix_y/2.5
+     style=1
+
+     # do not change these vars
+
+     balls = 5
+     start_x = matrix_x+radius
+     end_x = 0-radius-1
+
+     # set up the balls initial postion
+     for i=0 to balls-1
+          ball_x[i] = start_x
+          ball_y[i] = matrix_y/2
+          stop_x[i] = matrix_x/balls*i + radius + 1
+     next
+
+end
+
+:render
+
+     # clear the screen
+     clear
+
+     # render the balls
+     for i=0 to balls-1
+          
+          if autocolor_red=255 & autocolor_green= 255 & autocolor_blue=255
+               circle ball_x[i],ball_y[i],radius,196, 146, 102,1
+               circle ball_x[i]+radius/2,ball_y[i]-radius/2,radius/4,216, 166, 102,1
+               circle ball_x[i]+radius/2,ball_y[i]-radius/2,radius/6,236, 186, 102,1
+          else
+               circle ball_x[i],ball_y[i],radius,autocolor_red,autocolor_green,autocolor_blue,1
+          endif
+     next
+
+     # render the letters (unfortunately, the text method doesn't allow vars for the content)
+     text ball_x[0],ball_y[0]+radius/6,1,fontsize,0,0,1,"B","Arial",style
+     text ball_x[1],ball_y[1]+radius/6,1,fontsize,0,0,1,"I","Arial",style
+     text ball_x[2],ball_y[2]+radius/6,1,fontsize,0,0,1,"N","Arial",style
+     text ball_x[3],ball_y[3]+radius/6,1,fontsize,0,0,1,"G","Arial",style
+     text ball_x[4],ball_y[4]+radius/6,1,fontsize,0,0,1,"O","Arial",style
+
+
+     # move the balls into the matrix
+     gosub move_in
+     
+end
+
+# move the balls into the matrix
+:move_in
+
+     # loop over the balls
+     for i=0 to balls-1
+
+     # loop over pixelstep, slower every ball
+     for ps=0 to pixelstep*(i+1)
+
+
+          if i=0
+               if ball_x[i] > stop_x[i]
+                    ball_x[i]=ball_x[i]-1
+                    ball_y[i]=ball_y[i]
+               endif
+          else if ball_x[i-1] = stop_x[i-1]
+               if ball_x[i] > stop_x[i]
+                    ball_x[i]=ball_x[i]-1
+                    ball_y[i]=ball_y[i]
+               endif
+          endif
+          
+     next #pixelstep
+
+     if ball_x[balls-1]<=stop_x[balls-1]
+          gosub move_out          
+     endif
+
+     next #i
+
+end
+
+# move the balls out of the matrix
+:move_out
+
+     # loop over the balls
+     for i=0 to balls-1
+
+     # loop over pixelstep,faster every ball
+     for ps=0 to pixelstep/(i+1)
+
+
+          if i=0
+               if ball_x[i] > end_x
+                    ball_x[i]=ball_x[i]-1
+                    ball_y[i]=ball_y[i]
+               endif
+          else if ball_x[i-1] = end_x
+               if ball_x[i] > end_x
+                    ball_x[i]=ball_x[i]-1
+                    ball_y[i]=ball_y[i]
+               endif
+          endif
+          
+     next #pixelstep
+
+     next #i
+
+     if ball_x[balls-1]<=end_x
+
+          # reset the balls initial postion
+          for i=0 to balls-1
+               ball_x[i] = start_x
+               ball_y[i] = matrix_y/2
+               stop_x[i] = matrix_x/balls*i + radius + 1
+          next
+
+          gosub move_in 
+          
+     endif
+
+end
+
