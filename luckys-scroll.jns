@@ -1,0 +1,130 @@
+#############################################################################
+# Jinx!Script for permanent luckys logo (scrolling)
+# (c)2021 Rene Springborn
+# https://github.com/qu1cke/jinx-scripts
+#
+# Work in progress!
+#
+#############################################################################
+
+:init
+
+	
+	height = 16
+	width = 6
+	margin = 2
+	top =  8
+
+
+	start_x = matrix_x/2-26
+
+end
+
+
+# render frame
+:render
+
+	# randomize start coords
+	bottom = top+15	
+
+	# clear matrix
+	clear
+	
+	# L
+	l_left = start_x
+	line l_left+0, top,l_left+0, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line l_left+1, top,l_left+1, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line l_left+2, bottom-1,l_left+5,bottom-1,autocolor_red,autocolor_green,autocolor_blue
+	line l_left+2, bottom,l_left+5,bottom,autocolor_red,autocolor_green,autocolor_blue
+
+	# U
+	u_left = start_x + margin + width
+	line u_left+0, top, u_left+0, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+1, top, u_left+1, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+2, bottom-1, u_left+3, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+2, bottom-0, u_left+3, bottom-0 ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+4, top, u_left+4, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+5, top, u_left+5, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+
+	# C
+	c_left = start_x + 2*margin + 2*width
+	line c_left+0, top+1, c_left, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+1, top, c_left+1, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+2, top, c_left+3, top ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+2, top+1, c_left+3, top+1 ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+2, bottom-1, c_left+3, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+2, bottom-0, c_left+3, bottom-0 ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+4, top, c_left+4, top+4,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+5, top+1, c_left+5, top+4,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+4, bottom-4, c_left+4, bottom,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+5, bottom-4, c_left+5, bottom-1,autocolor_red,autocolor_green,autocolor_blue
+
+	# K
+	k_left = start_x + 3*margin + 3*width
+	line k_left+0, top, k_left+0, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+1, top, k_left+1, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+2, top+5, k_left+2, bottom-5 ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+3, top+2, k_left+3, bottom-2 ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+4, top, k_left+4, top+5 ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+4, bottom, k_left+4, bottom-5 ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+5, top, k_left+5, top+2 ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+5, bottom, k_left+5, bottom-2 ,autocolor_red,autocolor_green,autocolor_blue
+	
+	# Y
+	y_left = start_x + 4*margin + 4*width
+	line y_left+0, top, y_left+0, bottom-4 ,autocolor_red,autocolor_green,autocolor_blue
+	line y_left+1, top, y_left+1, bottom-3 ,autocolor_red,autocolor_green,autocolor_blue
+	line y_left+2, bottom-4, y_left+3, bottom-4 ,autocolor_red,autocolor_green,autocolor_blue
+	line y_left+2, bottom-3, y_left+3, bottom-3 ,autocolor_red,autocolor_green,autocolor_blue
+	line y_left+4, top, y_left+5, top ,autocolor_red,autocolor_green,autocolor_blue
+	line y_left+4, top+5, y_left+4, bottom+4 ,autocolor_red,autocolor_green,autocolor_blue
+	line y_left+5, top+6, y_left+5, bottom+4 ,autocolor_red,autocolor_green,autocolor_blue
+	line y_left, bottom+3, y_left+5, bottom+3 ,autocolor_red,autocolor_green,autocolor_blue
+	line y_left, bottom+4, y_left+5, bottom+4 ,autocolor_red,autocolor_green,autocolor_blue
+
+	#S
+	s_left = start_x + 5*margin + 6*width - 1
+	line s_left, top, s_left+3, top ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left+4, top, s_left+4, top+4 ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left+5, top+1, s_left+5, top+4 ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left, top + 6, s_left, top+8 ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left+1, top + 5, s_left+1, top+9 ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left+2, top + 8, s_left+5, top+8 ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left+2, top + 9, s_left+5, top+9 ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left+4, top + 10, s_left+4, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left+5, top + 10, s_left+5, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left, bottom-1, s_left+3, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line s_left, bottom, s_left+3, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	
+
+	# SHAMROCK
+	r_left = start_x + 4*margin + 4*width + width/2
+	line r_left+0, top-2, r_left+0, top-1 ,0,255,0
+	line r_left+0, top+2, r_left+0, top+1 ,0,255,0
+	line r_left+1, top-3, r_left+1, top-1 ,0,255,0
+	line r_left+1, top+3, r_left+1, top+1 ,0,255,0
+	line r_left+2, top-4, r_left+2, top-1 ,0,255,0
+	line r_left+2, top+4, r_left+2, top+1 ,0,255,0
+	line r_left+3, top-5, r_left+3, top-1 ,0,255,0
+	line r_left+3, top+5, r_left+3, top+1 ,0,255,0
+	line r_left+4, top-6, r_left+4, top-1 ,0,255,0
+	line r_left+4, top+6, r_left+4, top+1 ,0,255,0
+	line r_left+5, top-6, r_left+5, top-1 ,0,255,0
+	line r_left+5, top+6, r_left+5, top+1 ,0,255,0
+	line r_left+7, top-6, r_left+7, top-1 ,0,255,0
+	line r_left+7, top+6, r_left+7, top+1 ,0,255,0
+	line r_left+8, top-6, r_left+8, top-1 ,0,255,0
+	line r_left+8, top+6, r_left+8, top+1 ,0,255,0
+	line r_left+9, top-5, r_left+9, top-1 ,0,255,0
+	line r_left+9, top+5, r_left+9, top+1 ,0,255,0
+	line r_left+10, top-4, r_left+10, top-1 ,0,255,0
+	line r_left+10, top+4, r_left+10, top+1 ,0,255,0
+	line r_left+11, top-3, r_left+11, top-1 ,0,255,0
+	line r_left+11, top+3, r_left+11, top+1 ,0,255,0
+	line r_left+12, top-2, r_left+12, top-1 ,0,255,0
+	line r_left+12, top+2, r_left+12, top+1 ,0,255,0
+
+
+
+
+end
