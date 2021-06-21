@@ -1,19 +1,20 @@
 #############################################################################
-# Jinx!Script for permanent luckys logo
+# Jinx!Script for permanent luckys logo (scrolling)
 # (c)2021 Rene Springborn
 # https://github.com/qu1cke/jinx-scripts
+#
+# Work in progress!
+#
 #############################################################################
 
 :init
 
 	
-	start_y = 15
-	
 	height = 16
 	width = 6
 	margin = 2
 	top =  8
-	bottom = matrix_y - 7
+
 
 	start_x = matrix_x/2-26
 
@@ -22,6 +23,9 @@ end
 
 # render frame
 :render
+
+	# randomize start coords
+	bottom = top+15	
 
 	# clear matrix
 	clear
@@ -94,32 +98,31 @@ end
 	
 
 	# SHAMROCK
-	y_left = start_x + 4*margin + 4*width + width/2
-	line y_left+0, top-2, y_left+0, top-1 ,0,255,0
-	line y_left+0, top+2, y_left+0, top+1 ,0,255,0
-	line y_left+1, top-3, y_left+1, top-1 ,0,255,0
-	line y_left+1, top+3, y_left+1, top+1 ,0,255,0
-	line y_left+2, top-4, y_left+2, top-1 ,0,255,0
-	line y_left+2, top+4, y_left+2, top+1 ,0,255,0
-	line y_left+3, top-5, y_left+3, top-1 ,0,255,0
-	line y_left+3, top+5, y_left+3, top+1 ,0,255,0
-	line y_left+4, top-6, y_left+4, top-1 ,0,255,0
-	line y_left+4, top+6, y_left+4, top+1 ,0,255,0
-	line y_left+5, top-6, y_left+5, top-1 ,0,255,0
-	line y_left+5, top+6, y_left+5, top+1 ,0,255,0
-	line y_left+7, top-6, y_left+7, top-1 ,0,255,0
-	line y_left+7, top+6, y_left+7, top+1 ,0,255,0
-	line y_left+8, top-6, y_left+8, top-1 ,0,255,0
-	line y_left+8, top+6, y_left+8, top+1 ,0,255,0
-	line y_left+9, top-5, y_left+9, top-1 ,0,255,0
-	line y_left+9, top+5, y_left+9, top+1 ,0,255,0
-	line y_left+10, top-4, y_left+10, top-1 ,0,255,0
-	line y_left+10, top+4, y_left+10, top+1 ,0,255,0
-	line y_left+11, top-3, y_left+11, top-1 ,0,255,0
-	line y_left+11, top+3, y_left+11, top+1 ,0,255,0
-	line y_left+12, top-2, y_left+12, top-1 ,0,255,0
-	line y_left+12, top+2, y_left+12, top+1 ,0,255,0
-
+	r_left = start_x + 4*margin + 4*width + width/2
+	line r_left+0, top-2, r_left+0, top-1 ,0,255,0
+	line r_left+0, top+2, r_left+0, top+1 ,0,255,0
+	line r_left+1, top-3, r_left+1, top-1 ,0,255,0
+	line r_left+1, top+3, r_left+1, top+1 ,0,255,0
+	line r_left+2, top-4, r_left+2, top-1 ,0,255,0
+	line r_left+2, top+4, r_left+2, top+1 ,0,255,0
+	line r_left+3, top-5, r_left+3, top-1 ,0,255,0
+	line r_left+3, top+5, r_left+3, top+1 ,0,255,0
+	line r_left+4, top-6, r_left+4, top-1 ,0,255,0
+	line r_left+4, top+6, r_left+4, top+1 ,0,255,0
+	line r_left+5, top-6, r_left+5, top-1 ,0,255,0
+	line r_left+5, top+6, r_left+5, top+1 ,0,255,0
+	line r_left+7, top-6, r_left+7, top-1 ,0,255,0
+	line r_left+7, top+6, r_left+7, top+1 ,0,255,0
+	line r_left+8, top-6, r_left+8, top-1 ,0,255,0
+	line r_left+8, top+6, r_left+8, top+1 ,0,255,0
+	line r_left+9, top-5, r_left+9, top-1 ,0,255,0
+	line r_left+9, top+5, r_left+9, top+1 ,0,255,0
+	line r_left+10, top-4, r_left+10, top-1 ,0,255,0
+	line r_left+10, top+4, r_left+10, top+1 ,0,255,0
+	line r_left+11, top-3, r_left+11, top-1 ,0,255,0
+	line r_left+11, top+3, r_left+11, top+1 ,0,255,0
+	line r_left+12, top-2, r_left+12, top-1 ,0,255,0
+	line r_left+12, top+2, r_left+12, top+1 ,0,255,0
 
 
 
