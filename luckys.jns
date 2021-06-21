@@ -1,0 +1,70 @@
+#############################################################################
+# Jinx!Script for permanent luckys logo
+# (c)2021 Rene Springborn
+# https://github.com/qu1cke/jinx-scripts
+#############################################################################
+
+:init
+
+	
+	start_y = 15
+	
+	height = 16
+	width = 6
+	margin = 2
+	top =  8
+	bottom = matrix_y - 7
+
+	start_x = matrix_x/2-30
+
+end
+
+
+# render frame
+:render
+
+	# clear matrix
+	clear
+	
+	# L
+	l_left = start_x
+	line l_left+0, top,l_left+0, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line l_left+1, top,l_left+1, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line l_left+2, bottom-1,l_left+5,bottom-1,autocolor_red,autocolor_green,autocolor_blue
+	line l_left+2, bottom,l_left+5,bottom,autocolor_red,autocolor_green,autocolor_blue
+
+	# U
+	u_left = start_x + margin + width
+	line u_left+0, top, u_left+0, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+1, top, u_left+1, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+2, bottom-1, u_left+3, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+2, bottom-0, u_left+3, bottom-0 ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+4, top, u_left+4, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line u_left+5, top, u_left+5, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+
+	# C
+	c_left = start_x + 2*margin + 2*width
+	line c_left+0, top+1, c_left, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+1, top, c_left+1, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+2, top, c_left+3, top ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+2, top+1, c_left+3, top+1 ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+2, bottom-1, c_left+3, bottom-1 ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+2, bottom-0, c_left+3, bottom-0 ,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+4, top, c_left+4, top+4,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+5, top+1, c_left+5, top+4,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+4, bottom-4, c_left+4, bottom,autocolor_red,autocolor_green,autocolor_blue
+	line c_left+5, bottom-4, c_left+5, bottom-1,autocolor_red,autocolor_green,autocolor_blue
+
+	# K
+	k_left = start_x + 3*margin + 3*width
+	line k_left+0, top, k_left+0, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+1, top, k_left+1, bottom ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+2, top+5, k_left+2, bottom-5 ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+3, top+2, k_left+3, bottom-2 ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+4, top, k_left+4, top+5 ,autocolor_red,autocolor_green,autocolor_blue
+	line k_left+5, top, k_left+5, top+2 ,autocolor_red,autocolor_green,autocolor_blue
+	
+
+
+
+end
