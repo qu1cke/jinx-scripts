@@ -1,0 +1,131 @@
+#############################################################################
+# Jinx!Script for 30 seconds timer
+# (c)2026 Rene Springborn
+# https://github.com/qu1cke/jinx-scripts
+#############################################################################
+
+:init
+     frame_counter=0
+     frames_per_second=25
+end
+
+:render
+     clear
+
+     elapsed=floor(frame_counter/frames_per_second)
+     remaining=30-elapsed
+
+     if remaining < 0
+          remaining=0
+     endif
+
+     if remaining > 5
+          r=0
+          g=255
+          b=0
+     else
+          r=255
+          g=0
+          b=0
+     endif
+
+     ypos=17
+
+     if remaining = 30
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:30", "Arial", 1
+     endif
+     if remaining = 29
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:29", "Arial", 1
+     endif
+     if remaining = 28
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:28", "Arial", 1
+     endif
+     if remaining = 27
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:27", "Arial", 1
+     endif
+     if remaining = 26
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:26", "Arial", 1
+     endif
+     if remaining = 25
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:25", "Arial", 1
+     endif
+     if remaining = 24
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:24", "Arial", 1
+     endif
+     if remaining = 23
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:23", "Arial", 1
+     endif
+     if remaining = 22
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:22", "Arial", 1
+     endif
+     if remaining = 21
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:21", "Arial", 1
+     endif
+     if remaining = 20
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:20", "Arial", 1
+     endif
+     if remaining = 19
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:19", "Arial", 1
+     endif
+     if remaining = 18
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:18", "Arial", 1
+     endif
+     if remaining = 17
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:17", "Arial", 1
+     endif
+     if remaining = 16
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:16", "Arial", 1
+     endif
+     if remaining = 15
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:15", "Arial", 1
+     endif
+     if remaining = 14
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:14", "Arial", 1
+     endif
+     if remaining = 13
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:13", "Arial", 1
+     endif
+     if remaining = 12
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:12", "Arial", 1
+     endif
+     if remaining = 11
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:11", "Arial", 1
+     endif
+     if remaining = 10
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:10", "Arial", 1
+     endif
+     if remaining = 9
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:09", "Arial", 1
+     endif
+     if remaining = 8
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:08", "Arial", 1
+     endif
+     if remaining = 7
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:07", "Arial", 1
+     endif
+     if remaining = 6
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:06", "Arial", 1
+     endif
+     if remaining = 5
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:05", "Arial", 1
+     endif
+     if remaining = 4
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:04", "Arial", 1
+     endif
+     if remaining = 3
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:03", "Arial", 1
+     endif
+     if remaining = 2
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:02", "Arial", 1
+     endif
+     if remaining = 1
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:01", "Arial", 1
+     endif
+     if remaining = 0
+          text matrix_x/2, ypos, 1, 26, r, g, b, "00:00", "Arial", 1
+     endif
+
+     if remaining > 0
+          frame_counter=frame_counter+1
+     endif
+end
